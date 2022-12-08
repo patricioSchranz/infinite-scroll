@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
+
+
+/* ----------------------------------------
+Resets / Defaults / Common 
+-------------------------------------------- */
+
 html{
     box-sizing: border-box;
 }
@@ -5,4 +12,77 @@ html{
 body{
     min-height: 100vh;
     margin: 0;
+    font-family: 'Inconsolata', monospace;
+}
+
+
+
+/* ---------------------------------------
+Special Elements 
+------------------------------------------*/
+
+.spinner{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, .8);
+}
+
+.spinner img{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+/* ---------------------------------------
+Infinite Scroll Section
+------------------------------------------*/
+
+h1{
+    font-size: 2.5rem;
+    letter-spacing: 0.3rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+br.hidden{
+    display: none;
+}
+
+.unsplash-images{
+    margin: 0 20%;
+}
+
+.unsplash-images img{
+    width: 100%;
+    margin: .5rem;
+}
+
+
+
+/* ---------------------------------------
+Media Querys
+------------------------------------------*/
+
+@media screen and (max-width: 850px){
+    h1{
+        font-size: 2rem;
+        letter-spacing: 0.2rem;
+    }
+
+    .unsplash-images{
+        margin: 0 5%;
+    }
+
+    .unsplash-images img{
+        margin: .2rem;
+    }
+
+    br.hidden{
+        display: block;
+    }
 }
