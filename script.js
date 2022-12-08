@@ -50,8 +50,6 @@ const setAttributes = (element, attributes)=>{
 
 const displayPhotos = async(response)=>{
     photoArray = await response.json();
-    // console.log('photo array =>', photoArray);
-    // console.log('photo =>', photoArray[0]);
 
     // => reset some variables => it`s another fetching round
     newImagesLoaded = 0;
@@ -100,8 +98,6 @@ const throwError = (response)=>{
 // -------------------------------
 
 const getPhotos = async()=>{
-    console.log('child elements count of image container', imageContainerChildElementsCount);
-
     let apiUrl = 
         imageContainerChildElementsCount < 1 
         ? `https://api.unsplash.com/photos/random?client_id=${apiKey}&count=5`
@@ -109,8 +105,7 @@ const getPhotos = async()=>{
 
     try{
         const response = await fetch(apiUrl);
-        // console.log(response);
-
+    
         response.ok
         ? displayPhotos(response)
         : throwError(response);
@@ -132,15 +127,8 @@ getPhotos();
 // -------------------------------
 
 window.addEventListener('scroll', ()=>{
-    // console.log('window inner height => \n', windowHeight);
-    // console.log('scroll y => \n', window.scrollY);
-    // console.log('body offset height => \n', document.body.offsetHeight);
-
     if(windowHeight + window.scrollY >= document.body.offsetHeight - windowHeight * 0.5 && allNewImagesAreLoaded){
         allNewImagesAreLoaded = false;
         getPhotos();
-        console.log('bigger');
-        console.log('scroll y => \n', window.scrollY);
-        console.log('body offset height => \n', document.body.offsetHeight);
     }
 })
